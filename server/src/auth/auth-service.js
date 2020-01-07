@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 
 const AuthService = {
-	getUserWithUserName(db, username) {
-		return db('users').where({ username }).first();
+	getUserWithUserName(db, user_name) {
+		return db('users').where({ user_name }).first();
 	},
 	comparePasswords(password, hash) {
 		return bcrypt.compare(password, hash);
