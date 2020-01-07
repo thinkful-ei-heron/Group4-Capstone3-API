@@ -9,7 +9,5 @@ CREATE TABLE journal (
     rating INTEGER,
     abv INTEGER,
     heaviness INTEGER,
-    color INTEGER,
-    user_id INTEGER REFERENCES user(id)
-        ON DELETE CASCADE NOT NULL
+    color INTEGER
 );
