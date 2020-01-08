@@ -36,9 +36,9 @@ journalRouter
 	})
 	.post(jsonBodyParser, (req, res, next) => {
 		const requiredFields = [ 'name' ];
-		const { name } = req.body;
+		const { name, date_created, location, description, type, rating, abv, heaviness, color } = req.body;
 		console.log(req.body);
-		const newJournal = { name };
+		const newJournal = { name, date_created, location, description, type, rating, abv, heaviness, color };
 		for (const field of requiredFields) {
 			if (!(field in req.body)) {
 				return res.status(400).json({
