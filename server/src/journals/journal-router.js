@@ -1,25 +1,8 @@
-const JournalService ={
+'use strict';
+const express = require('express');
+const path = require('path');
+const JournalService = require('./journal-service');
+const { requireAuth } = require('../middleware/jwt-auth');
 
-
-
-    insertJournal(knex, newJournal) {
-        return knex 
-            .insert(newJournal)
-            .into('journal')
-            .returning('*')
-            .then(rows => {
-                return rows[0]
-            })
-    },
-
-    deleteJournal(knex, id) {
-        return knex('journal')
-        .where({ id })
-        .delete()
-    },
-
-    
-    
-}
-
-module.exports = JournalService
+const journalRouter = express.Router();
+const jsonBodyParser = express.json();
