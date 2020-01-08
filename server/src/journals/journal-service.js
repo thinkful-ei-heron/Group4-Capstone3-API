@@ -23,7 +23,6 @@ const JournalService = {
 	serializeJournal(journal) {
 		return {
 			id: journal.id,
-			image: journal.image,
 			name: journal.name,
 			date_created: journal.date_created,
 			location: journal.location,
