@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const express = require('express');
 const JournalService = require('./journal-service');
 const { requireAuth } = require('../middleware/jwt-auth');
@@ -34,7 +34,6 @@ journalRouter
 	.get((req, res, next) => {
 		res.json(res.journal);
 	})
-
 	.post(jsonBodyParser, (req, res, next) => {
 		const requiredFields = [ 'name' ];
 		const { name } = req.body;
@@ -57,23 +56,22 @@ journalRouter
 			.catch(next);
 	});
 
-journalRouter
-	.patch(jsonBodyParser, (req, res, next) => {
-		const { name, journal_id } = req.body;
-		const journalToUpdate = { name, journal_id };
+journalRouter.patch(jsonBodyParser, (req, res, next) => {
+	const { name, journal_id } = req.body;
+	const journalToUpdate = { name, journal_id };
 
-		const numberOfValues = Object.values(journalToUpdate).filter(Boolean).length;
-		if (numberOfValues === 0)
-			return res.status(400).json({
-				error: {
-					message: `Request body must contain name and journal id :) `
-				}
-			});
-		JournalService.updateJournal(req.app.get('db'), req.params.journal_id, journalToUpdate)
-			.then((numRowsAffected) => {
-				res.status(204).end();
-			})
-			.catch(next);
-	});
+	const numberOfValues = Object.values(journalToUpdate).filter(Boolean).length;
+	if (numberOfValues === 0)
+		return res.status(400).json({
+			error: {
+				message: `Request body must contain name and journal id :) `
+			}
+		});
+	JournalService.updateJournal(req.app.get('db'), req.params.journal_id, journalToUpdate)
+		.then((numRowsAffected) => {
+			res.status(204).end();
+		})
+		.catch(next);
+});
 
 module.exports = journalRouter;
