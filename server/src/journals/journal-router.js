@@ -1,17 +1,14 @@
 'use strict';
 const express = require('express');
-const path = require('path');
 const JournalService = require('./journal-service');
 const { requireAuth } = require('../middleware/jwt-auth');
 
 const journalRouter = express.Router();
-const jsonBodyParser = express.json();
 
-// const serializeJournals = {}
 journalRouter.route('/').all(requireAuth).get((req, res, next) => {
 	JournalService.getAllJournals(req.app.get('db'), req.user.id)
 		.then((journals) => {
-			res.json(journals);
+			res.json(JournalService.serializeJournal(journals));
 		})
 		.catch(next);
 });
@@ -34,5 +31,5 @@ journalRouter
 			.catch(next);
 	})
 	.get((req, res, next) => {
-		res.json(res.goal);
+		res.json(res.journal);
 	});
