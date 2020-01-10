@@ -22,13 +22,13 @@ app.use('/api/users', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/journals', journalRouter);
 
-app.use(function errorHandler(error, req, res, next) {
-		const response = (NODE_ENV === 'production')
-			? { error: 'Server error' }
-			: (console.error(error), { error: error.message, details: error })
+// app.use(function errorHandler(error, req, res, next) {
+// 		const response = (NODE_ENV === 'production')
+// 			? { error: 'Server error' }
+// 			: (console.error(error), { error: error.message, details: error })
 
-		res.status(500).json(response)
-	}
-);
+// 		res.status(500).json(response)
+// 	}
+// );
 
 module.exports = app;
