@@ -20,7 +20,6 @@ journalRouter.route('/')
     .post(jsonBodyParser, (req, res, next) => {
         const requiredFields = ['name'];
         const {name, date_created, location, description, type, rating, abv, heaviness, color} = req.body;
-        console.log(req.body);
         const newJournal = {name, date_created, location, description, type, rating, abv, heaviness, color};
         for (const field of requiredFields) {
             if (!(field in req.body)) {
@@ -58,23 +57,30 @@ journalRouter
     })
     .get((req, res, next) => {
         res.json(res.journal);
-    });
-journalRouter.patch(jsonBodyParser, (req, res, next) => {
-    const {name, journal_id} = req.body;
-    const journalToUpdate = {name, journal_id};
+    })
+    .patch(jsonBodyParser, (req, res, next) => {
+        const {name, date_created, location, description, type, rating, abv, heaviness, color} = req.body;
+        const journalToUpdate = {name, date_created, location, description, type, rating, abv, heaviness, color};
 
-    const numberOfValues = Object.values(journalToUpdate).filter(Boolean).length;
-    if (numberOfValues === 0)
-        return res.status(400).json({
-            error: {
-                message: `Request body must contain name and journal id :) `
-            }
-        });
-    JournalService.updateJournal(req.app.get('db'), req.params.journal_id, journalToUpdate)
-        .then((numRowsAffected) => {
-            res.status(204).end();
+        const numberOfValues = Object.values(journalToUpdate).filter(Boolean).length;
+        if (numberOfValues === 0)
+            return res.status(400).json({
+                error: {
+                    message: `Request body must contain name and journal id :) `
+                }
+            });
+        JournalService.updateJournal(req.app.get('db'), req.params.id, journalToUpdate)
+            .then((numRowsAffected) => {
+                res.status(204).end();
+            })
+            .catch(next);
+    })
+    .delete((req, res, next) => {
+        JournalService.deleteJournal(req.app.get('db'), parseInt(req.params.id))
+        .then(() => {
+            res.status(204).json(res.journal)
         })
-        .catch(next);
+        .catch(next)
 });
 
 module.exports = journalRouter;
