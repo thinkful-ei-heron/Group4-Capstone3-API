@@ -1,5 +1,4 @@
-ALTER TABLE users
+ALTER TABLE journal
     DROP COLUMN IF EXISTS user_id;
-
-    DROP TABLE IF EXISTS users; 
+DROP TABLE IF EXISTS users;
     
