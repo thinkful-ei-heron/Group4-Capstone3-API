@@ -16,7 +16,9 @@ Server side: Express.js, Node.js, PostgreSQL and Heroku.
 
 ## /api/auth/
 POST: responds with JWT auth token using secrete when user enters valid user credentials.
+
 PUT: Re-authenticates the user, refreshes token. 
+
         {
             user_name: String,
             password: String
