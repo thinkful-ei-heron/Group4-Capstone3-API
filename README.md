@@ -1,4 +1,7 @@
 # DearBeer
+
+#### Created by: Andrea Bender, Maria Danielson, Jonny Deates, Evan Vogts
+
 # About
 Server is used for back end of app and connects to client. 
 
