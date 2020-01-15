@@ -9,6 +9,7 @@ const { NODE_ENV } = require('./config');
 const userRouter = require('./user/user-router');
 const authRouter = require('./auth/auth-router');
 const journalRouter = require('./journals/journal-router');
+const mapsRouter = require('./maps/maps-router');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(cors());
 app.use('/api/users', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/journals', journalRouter);
+app.use('/api/maps', mapsRouter);
 
 // app.use(function errorHandler(error, req, res, next) {
 // 		const response = (NODE_ENV === 'production')
