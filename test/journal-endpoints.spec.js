@@ -72,18 +72,12 @@ describe('journal Endpoints', function() {
 				.get(`/api/journals`)
 				.set('Authorization', helpers.makeAuthHeader(testUser))
 				.expect(200)
-				.expect({
-					id: 1,
-					name: 'Name 1',
-					date_created: testUser.date,
-					location: 'Location 1',
-					description: 'Desc 1',
-					type: 'Ale',
-					rating: 5,
-					abv: 3,
-					heaviness: 3,
-					color: 1,
-					user_id: testUser.id
+				.expect((res) => {
+					expect(res.body).to.have.keys('journal');
+
+					expect(res.body.journal).to.have.property('id', usersJournal.id);
+					expect(res.body.journal).to.have.property('name', usersJournal.name);
+					expect(res.body.journal).to.have.property('user_id', usersJournal.user_id);
 				});
 		});
 	});
