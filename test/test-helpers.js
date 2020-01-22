@@ -44,55 +44,31 @@ function makeJournals(user) {
 			heaviness: 3,
 			color: 1,
 			user_id: user.id
-		},
-		{
-			id: 2,
-			name: 'Name 2',
-			location: 'Location 2',
-			description: 'Desc 2',
-			type: 'Ale',
-			rating: 4,
-			abv: 5.9,
-			heaviness: 4,
-			color: 3,
-			user_id: user.id
-		},
-		{
-			id: 3,
-			name: 'Name 3',
-			location: 'Location 3',
-			description: 'Desc 3',
-			type: 'Lager',
-			rating: 3,
-			abv: 6.7,
-			heaviness: 2,
-			color: 5,
-			user_id: user.id
-		},
-		{
-			id: 4,
-			name: 'Name 4',
-			location: 'Location 4',
-			description: 'Desc 4',
-			type: 'Belgian',
-			rating: 5,
-			abv: 4.3,
-			heaviness: 3,
-			color: 1,
-			user_id: user.id
-		},
-		{
-			id: 5,
-			name: 'Name 5',
-			location: 'Location 5',
-			description: 'Desc 5',
-			type: 'Ale',
-			rating: 3,
-			abv: 7.3,
-			heaviness: 3,
-			color: 4,
-			user_id: user.id
 		}
+		// {
+		// 	id: 2,
+		// 	name: 'Name 2',
+		// 	location: 'Location 2',
+		// 	description: 'Desc 2',
+		// 	type: 'Ale',
+		// 	rating: 4,
+		// 	abv: 5.9,
+		// 	heaviness: 4,
+		// 	color: 3,
+		// 	user_id: user.id
+		// },
+		// {
+		// 	id: 3,
+		// 	name: 'Name 3',
+		// 	location: 'Location 3',
+		// 	description: 'Desc 3',
+		// 	type: 'Lager',
+		// 	rating: 3,
+		// 	abv: 6.7,
+		// 	heaviness: 2,
+		// 	color: 5,
+		// 	user_id: user.id
+		// }
 	];
 	return [ journals ];
 }
@@ -143,7 +119,7 @@ async function seedUsersJournals(db, users, journals) {
 	await db.transaction(async (trx) => {
 		await trx.into('journal').insert(journals);
 
-		await Promise.all([ trx.raw(`SELECT setval('journal_id_seq', ?)`, [ journals[journals.length - 1].id ]) ]);
+		await trx.raw(`SELECT setval('journal_id_seq', ?)`, [ journals[journals.length - 1].id ]);
 	});
 }
 

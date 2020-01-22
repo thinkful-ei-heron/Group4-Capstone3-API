@@ -156,38 +156,6 @@ describe('User Endpoints', function() {
 						})
 				);
 			});
-
-			// it(`inserts 1 journal for the new user`, () => {
-			// 	const newUser = {
-			// 		username: 'test username',
-			// 		password: '11AAaa!!',
-			// 		name: 'test name'
-			// 	};
-			// 	const expectedJournal = {
-			// 		name: 'Name 3',
-			// 		location: 'Location 3',
-			// 		description: 'Desc 3',
-			// 		type: 'Stout',
-			// 		rating: 5,
-			// 		abv: 3,
-			// 		heaviness: 3,
-			// 		color: 1
-			// 	};
-			// 	return supertest(app)
-			// 		.post('/api/users')
-			// 		.send(newUser)
-			// 		.then((res) =>
-			// 			/*
-			//       get journals for user that were inserted to db
-			//       */
-			// 			db.from('journal').select('journal.*').groupBy('journal.id').where({ user_id: res.body.id })
-			// 		)
-			// 		.then((dbLists) => {
-			// 			expect(dbLists).to.have.length(1);
-
-			// 			expect(dbLists[0].name).to.eql(expectedJournal.name);
-			// 		});
-			// });
 		});
 	});
 });
