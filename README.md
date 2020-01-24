@@ -60,3 +60,7 @@ POST: Lets user register for an account and posts data into the database so user
         user_name: String,
         }
  
+## Set up testing
+createdb -U username dearbeer-test
+npm run migrate:test
+npm test
