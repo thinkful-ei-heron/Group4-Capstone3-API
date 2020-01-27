@@ -7,7 +7,7 @@ TRUNCATE
 
 INSERT INTO users (user_name, full_name, password)
 VALUES
-    ('admin', 'John Doe', 'pass');
+    ('admin', 'John Doe',  '$2a$10$fCWkaGbt7ZErxaxclioLteLUgg4Q3Rp09WW0s/wSLxDKYsaGYUpjG');
 
 
 INSERT INTO journal (id, name, location, description, type, rating, abv, heaviness, color, user_id)

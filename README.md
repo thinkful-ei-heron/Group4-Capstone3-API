@@ -60,3 +60,29 @@ POST: Lets user register for an account and posts data into the database so user
         user_name: String,
         }
  
+
+# Landing Page
+![Landing page](./readme/landingpage.png)
+
+# Login Page
+![Login](./readme/login.png)
+
+# Register Page
+![Register](./readme/register.png)
+
+
+# Dashboard
+Once the user has started to build their list of beers, the app will provide the user with a detailed dashboard of the generated list of beers.  The user can find beer in beer list by sorting, filtering, and searching for keywords. The dashboard also contains a feature that user can use to costumize and create different list view i.e list, tile, or expanded view.
+##### Condensed View
+![Dashboard](./readme/dashboard.png)
+
+##### Expanded View
+![Expanded Dashboard](./readme/expanded.png)
+
+# Add Beer Form
+The add beer form is displayed with various fields for the user to input information about the beer as well as a rating and description/review of the beer. A user is also able to click a place and add a beer to their list for that location.
+![Add Beer Form](./readme/addform.png)
+
+# Breweries Map
+It also provides the user with a visual map of exactly where they have tasted all the hoppy goodness. User can search for local bars or breweries within a specified radius from their zip code .
+![Breweries Map](./readme/brew.png)
