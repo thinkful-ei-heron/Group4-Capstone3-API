@@ -27,7 +27,7 @@ DeerBear is a functional user friendly application for avid beer drinkers and ar
 
 
 # Dashboard
-Once the user has started to build their list of beers, the app will provide the user with a detailed dashboard of the generated list of beers.  The user can find beer in beer list by sorting, filtering, and searching for keywords. The dashboard also contains a feature that user can use to costumize and create different list view i.e list, tile, or expanded view.
+Once the user has started to build their list of beers, the app will provide the user with a detailed dashboard of the generated list of beers.  The user can find beer in beer list by sorting, filtering, and searching for keywords. The dashboard also contains a feature that user can use to customize and create different list view i.e list, tile, or expanded view.
 ##### Condensed View
 ![Dashboard](./src/images/readme/dashboard.png)
 
