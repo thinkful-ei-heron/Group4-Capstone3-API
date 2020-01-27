@@ -143,7 +143,7 @@ async function seedUsersJournals(db, users, journals) {
 	await db.transaction(async (trx) => {
 		await trx.into('journal').insert(journals);
 
-		await Promise.all([ trx.raw(`SELECT setval('journal_id_seq', ?)`, [ journals[journals.length - 1].id ]) ]);
+		await trx.raw(`SELECT setval('journal_id_seq', ?)`, [ journals[journals.length - 1].id ]);
 	});
 }
 
