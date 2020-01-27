@@ -14,9 +14,7 @@ journalRouter.route('/')
         JournalService.getAllJournals(req.app.get('db'), req.user.id)
             .then((journals) => {
                 if(journals.length === 0) {
-                    res.status(404).json({
-                        error: {message: "Journal does not exist"}
-                    });
+                    return;
                 }
                 res.json(journals);
             })

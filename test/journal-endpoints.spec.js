@@ -27,11 +27,6 @@ describe('journal Endpoints', function() {
 	describe(`Endpoints protected by user`, () => {
 		const journalSpecificEndpoint = [
 			{
-				title: `GET /api/journals`,
-				path: `/api/journals`,
-				method: supertest(app).get
-			},
-			{
 				title: `GET /api/journals/1`,
 				path: `/api/journals/1`,
 				method: supertest(app).get
